@@ -1,0 +1,7 @@
+2 + 3 * (4 - 1)
+10 / 2 + 3^2
+(5 + 3) * (6 - 2)
+What is the derivative of x^2?
+What is the integral of sin(x)?
+Solve x^2 - 4 = 0
+Solve x^3 - 8 = 0
