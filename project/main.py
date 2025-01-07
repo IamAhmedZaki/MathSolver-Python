@@ -54,7 +54,7 @@ def solve_math_problem(query):
         else:
             expr = sympify(query)
             result = expr.evalf()
-            return f"The result of {expr} is: {result}"
+            return f"The result of the given problem is: {result}"
 
     except Exception as e:
         return f"Error: Unable to process the query. {str(e)}"
@@ -66,7 +66,7 @@ def create_gui():
     # Initialize the main window
     root = tk.Tk()
     root.title("Enhanced AI Math Solver")
-    root.geometry("600x400")
+    root.geometry("700x500")
 
     # Input Label
     lbl = tk.Label(root, text="Enter your math problem:", font=("Arial", 14))
@@ -107,11 +107,23 @@ def create_gui():
                 file.writelines(history)
             messagebox.showinfo("Info", "History saved successfully!")
 
-    solve_button = tk.Button(root, text="Solve", font=("Arial", 12), command=on_solve)
-    solve_button.pack(pady=5)
+    # solve_button = tk.Button(root, text="Solve", font=("Arial", 12), command=on_solve,)
+    # solve_button.pack(pady=5)
 
-    save_button = tk.Button(root, text="Save History", font=("Arial", 12), command=save_history)
-    save_button.pack(pady=5)
+    # save_button = tk.Button(root, text="Save History", font=("Arial", 12), command=save_history)
+    # save_button.pack(pady=5)
+    
+    # Add this inside your GUI code where buttons are created
+    button_frame = tk.Frame(root)  # Create a frame to hold the buttons
+    button_frame.pack(side="bottom", anchor="e", pady=10, padx=10)  # Align bottom-right
+
+    # Create the Solve button and add it to the frame
+    solve_button = tk.Button(button_frame, text="Solve", command=on_solve)
+    solve_button.pack(side="left", padx=5)  # Align to the left within the frame
+
+    # Create the Save History button and add it to the frame
+    save_button = tk.Button(button_frame, text="Save History", command=save_history)
+    save_button.pack(side="left", padx=5)  # Align to the left within the frame
 
     # Run the Tkinter main loop
     root.mainloop()
